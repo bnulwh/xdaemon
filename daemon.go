@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strconv"
 	"time"
 )
@@ -122,7 +123,13 @@ func startProc(args, env []string, logFile string) (*exec.Cmd, error) {
 		Env:         env,
 		SysProcAttr: NewSysProcAttr(),
 	}
-
+	if filepath.Base(args[0]) == args[0] {
+		if lp, err := LookPath(args[0]); err != nil {
+			cmd.lookPathErr = err
+		} else {
+			cmd.Path = lp
+		}
+	}
 	if logFile != "" {
 		stdout, err := os.OpenFile(logFile, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0666)
 		if err != nil {
