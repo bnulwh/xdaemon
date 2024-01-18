@@ -1,3 +1,3 @@
-module github.com/zh-five/xdaemon
+module github.com/bnulwh/xdaemon
 
-go 1.13
+go 1.14
