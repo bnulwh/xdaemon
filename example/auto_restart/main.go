@@ -3,7 +3,7 @@
 package main
 
 import (
-	"github.com/zh-five/xdaemon"
+	"github.com/bnulwh/xdaemon"
 	"flag"
 	"log"
 	"os"
