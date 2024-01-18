@@ -107,7 +107,7 @@ func (d *Daemon) Run() {
 		//父进程: 等待子进程退出
 		err = cmd.Wait()
 		dat := time.Now().Unix() - t //子进程运行秒数
-		if dat < d.MinExitTime {     //异常退出
+		if dat < d.MinExitTime { //异常退出
 			errNum++
 		} else { //正常退出
 			errNum = 0
@@ -125,7 +125,7 @@ func startProc(args, env []string, logFile string) (*exec.Cmd, error) {
 	}
 	if filepath.Base(args[0]) == args[0] {
 		if lp, err := exec.LookPath(args[0]); err != nil {
-			cmd.lookPathErr = err
+			return nil, err
 		} else {
 			cmd.Path = lp
 		}
