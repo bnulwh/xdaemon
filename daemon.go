@@ -124,7 +124,7 @@ func startProc(args, env []string, logFile string) (*exec.Cmd, error) {
 		SysProcAttr: NewSysProcAttr(),
 	}
 	if filepath.Base(args[0]) == args[0] {
-		if lp, err := LookPath(args[0]); err != nil {
+		if lp, err := exec.LookPath(args[0]); err != nil {
 			cmd.lookPathErr = err
 		} else {
 			cmd.Path = lp
