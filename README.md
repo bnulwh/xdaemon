@@ -16,7 +16,7 @@ A library for writing system daemons in golang.
 package main
 
 import (
-	"github.com/zh-five/xdaemon"
+	"github.com/bnulwh/xdaemon"
 	"log"
 	"os"
 	"time"
@@ -51,7 +51,7 @@ func main() {
 package main
 
 import (
-	"github.com/zh-five/xdaemon"
+	"github.com/bnulwh/xdaemon"
 	"log"
 	"os"
 	"time"
